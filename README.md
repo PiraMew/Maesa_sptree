@@ -8,4 +8,6 @@ All data are stored in a project folder on /faststorage/project/Maesa
 - data: directory for raw data with renamed files and also alignments after manual edited (this directory is backed up).
 - scripts: all scripts used
 - steps: input and output in each step of the pipeline
+    - trimmed
+    - 
     
