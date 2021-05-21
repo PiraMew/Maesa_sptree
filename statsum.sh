@@ -24,6 +24,9 @@
 #working directories
 WD=$PWD/ #current working directory
 
+####################
+#---STAT SUMMARY---#
+####################
 
 mkdir output
 
