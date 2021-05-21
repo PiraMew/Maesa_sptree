@@ -11,7 +11,7 @@
 # script: paralog_inv.sh
 # --- Action: detecting paralogs
 # --- Input: HybPiper outputs
-# --- Output: print paralogs detected for each gene in paralog_genelist.txt
+# --- Output: print paralogs detected for each sample in paralog_genelist.txt
 # USAGE: sbatch paralog_inv.sh (*execute from within hybpiper directory)
 # Author: Pirada Sumanon (pirada.sumanon@bio.au.dk) 
 # Date: 21/05/2021
