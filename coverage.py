@@ -4,7 +4,7 @@
 # Project: Maesa Phylogeny
 # script: coverage.py
 # --- Action: mask any bases with low coverage
-# USAGE: use coverage.sh for execution
+# USAGE: use coverage_usage.sh for execution
 # Author: Wolf Eiserhardt
 ##################################
 
