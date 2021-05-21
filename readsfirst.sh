@@ -38,8 +38,9 @@ for f in *_1_paired_trimmed.fastq; do (echo ${f/_1_paired_trimmed.fastq} >> name
 #########################
 #---HYBPIPER:ASSEMBLY---#
 #########################
+cd $WD/hybpiper
 
 while read name; 
-do ~/HybPiper/reads_first.py -b ~/target/mega353.fasta -r ${name}_1_paired_trimmed.fastq ${name}_2_paired_trimmed.fastq --unpaired ${name}_unpaired12.fastq --prefix $name --bwa
+do ~/HybPiper/reads_first.py -b ~/target/mega353.fasta -r $WD/trimmed/${name}_1_paired_trimmed.fastq $WD/trimmed/${name}_2_paired_trimmed.fastq --unpaired $WD/trimmed/${name}_unpaired12.fastq --prefix $name --bwa
 done < namelist.txt
 
