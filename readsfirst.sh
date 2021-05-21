@@ -35,6 +35,8 @@ cd $WD/trimmed
 
 for f in *_1_paired_trimmed.fastq; do (echo ${f/_1_paired_trimmed.fastq} >> namelist.txt); done
 
+mv namelist.txt ../hybpiper
+
 #########################
 #---HYBPIPER:ASSEMBLY---#
 #########################
