@@ -3,7 +3,7 @@
 #SBATCH --job-name=Trimmomatic
 #SBATCH --time=00-06:00:00
 #SBATCH --mem-per-cpu=5G
-#SBATCH --ntasks=1 --cpus-per-task=1 --ntasks-per-node=1
+#SBATCH --cpus-per-task=4
 
 # Execute your command
 for i in *_1.fq.gz; 
