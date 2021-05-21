@@ -52,7 +52,7 @@ rm $WD/fastqc/fastqc_raw/*.zip #remove unnecessary zip files
 ###################
 
 for i in *_1.fq.gz; 
-do (java -jar $GWD/programs/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 4 -phred33 $i ${i/_1.fq.gz}_2.fq.gz $WD/trimmed/${i/_1.fq.gz}_1_paired_trimmed.fastq $WD/trimmed/${i/_1.fq.gz}_1_unpaired.fastq $WD/trimmed/${i/_1.fq.gz}_2_paired_trimmed.fastq $WD/trimmed/${i/_1.fq.gz}_2_unpaired.fastq ILLUMINACLIP:$GWD/programs/Trimmomatic-0.39/adapters/TruSeq3-PE-2.fa:2:30:10:1:true LEADING:3 TRAILING:3 MAXINFO:40:0.5 MINLEN:36); 
+do (java -jar ~/Trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 4 -phred33 $i ${i/_1.fq.gz}_2.fq.gz $WD/trimmed/${i/_1.fq.gz}_1_paired_trimmed.fastq $WD/trimmed/${i/_1.fq.gz}_1_unpaired.fastq $WD/trimmed/${i/_1.fq.gz}_2_paired_trimmed.fastq $WD/trimmed/${i/_1.fq.gz}_2_unpaired.fastq ILLUMINACLIP:~/Trimmomatic-0.39/adapters/TruSeq3-PE-2.fa:2:30:10:1:true LEADING:3 TRAILING:3 MAXINFO:40:0.5 MINLEN:36); 
 done
 
 #change working directory to trimmed
