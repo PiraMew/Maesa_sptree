@@ -50,3 +50,6 @@ For more detail on paralogs: https://github.com/mossmatters/HybPiper/wiki/Paralo
 
 
 
+
+[q1=[\w+]+;q2=[\w+]+;q3=[\w+]+;f1=[\d,.,E,-]+;f2=[\d,.,E,-]+;f3=[\d,.,E,-]+;pp1=[\d,.,E,-]+;pp2=[\d,.,E,-]+;pp3=[\d,.,E,-]+;QC=[\d,.,E,-]+;EN=([\d,.,E,-]+)]
+
