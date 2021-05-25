@@ -8,9 +8,9 @@
 ##################################
 # Project: Maesa Phylogeny
 # script: coverage_usage.sh
-# --- Action: execute coverage.py
+# --- Action: execute coverage.py and samples2genes.py
 # --- Input: HybPiper outputs, namelist.txt
-# --- Output: trimmed sample-level fasta
+# --- Output: trimmed fasta
 # USAGE: sbatch coverage_use.sh (*execute from global working directory, `/faststorage/project/Maesa`, in my case)
 # Author: Pirada Sumanon (pirada.sumanon@bio.au.dk) 
 # Date: 21/05/2021
@@ -22,15 +22,23 @@
 
 #working directories
 GWD=$PWD #global working directory, with subprojects and scripts (`/faststorage/project/Maesa`, in my case)
-WD=$GWD/steps/hybpiper #current working directory
+WD=$GWD/steps #current working directory
 
 #make a new directory for outputs
 mkdir -p $WD/coverage
 
 
 #########################
-#----EXECUTE SCRIPTS----#
+#----EXECUTE SCRIPT1----#
 #########################
 
-cd $WD
+cd $WD/hybpiper
 while read name; do $GWD/scripts/coverage.py $name; done < namelist.txt
+
+#########################
+#----EXECUTE SCRIPT2----#
+#########################
+
+cd $WD/coverage
+ls *trimmed.fasta > filelist.txt
+$GWD/scripts/samples2genes.py > outstats.csv
