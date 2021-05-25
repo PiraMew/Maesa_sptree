@@ -26,6 +26,7 @@ WD=$GWD/steps #current working directory
 
 #make a new directory for outputs
 mkdir -p $WD/coverage
+mkdir -p $WD/seq_sets2
 
 
 #########################
