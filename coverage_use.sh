@@ -11,7 +11,7 @@
 # --- Action: execute coverage.py
 # --- Input: HybPiper outputs, namelist.txt
 # --- Output: trimmed sample-level fasta
-# USAGE: sbatch coverage_use.sh (*execute from within hybpiper directory)
+# USAGE: sbatch coverage_use.sh (*execute from global working directory, `/faststorage/project/Maesa`, in my case)
 # Author: Pirada Sumanon (pirada.sumanon@bio.au.dk) 
 # Date: 21/05/2021
 ##################################
@@ -21,13 +21,16 @@
 #####################
 
 #working directories
-GWD=$PWD #global working directory, with subprojects and scripts
-WD="$GWD"/ #current working directory
+GWD=$PWD #global working directory, with subprojects and scripts (`/faststorage/project/Maesa`, in my case)
+WD=$GWD/steps/hybpiper #current working directory
+
+#make a new directory for outputs
+mkdir -p $WD/coverage
 
 
 #########################
 #----EXECUTE SCRIPTS----#
 #########################
 
-cd 
-while read name; do /faststorage/project/Maesa/scripts/coverage.py $name; done < namelist.txt
+cd $WD
+while read name; do $GWD/scripts/coverage.py $name; done < namelist.txt
