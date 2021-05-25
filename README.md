@@ -16,6 +16,7 @@ All data are stored in a project folder `/faststorage/project/Maesa`
     - `trimmed`: trimmed reads
     - `hybpiper`: all about hybpiper 
         *Target file needs to be at `~/target`
+    - `coverage`: output of coverage trimming 
 
 
 ## 1. Quality Control and Read Trimming
