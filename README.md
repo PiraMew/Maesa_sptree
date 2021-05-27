@@ -54,7 +54,11 @@ This script will execute `coverage.py` then `samples2genes.py`.
 Output: the new gene fasta files with coverage trimming will be saved in `seq_sets2` and ready for alignment.
 
 ## 4. Alignment
-`MAFFT.sh`
+From GWD, run `MAFFT.sh`.
+The aligned sequences will be stored in `MAFFT/alignedseq`.
+
+## 5. Mapping exons to alignments
+
 
 
 
