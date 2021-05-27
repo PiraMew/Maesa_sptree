@@ -18,6 +18,7 @@ All data are stored in a project folder `/faststorage/project/Maesa`
         *Target file needs to be at `~/target`
     - `coverage`: output of coverage trimming 
     - `seq_sets2`: sequence sets after coverage trimming and length filtering
+    - `MAFFT`: all related to sequence alignments
 
 
 ## 1. Quality Control and Read Trimming
@@ -54,10 +55,12 @@ This script will execute `coverage.py` then `samples2genes.py`.
 Output: the new gene fasta files with coverage trimming will be saved in `seq_sets2` and ready for alignment.
 
 ## 4. Alignment
+### 4.1 Sequence alignment using MAFFT
 From GWD, run `MAFFT.sh`.
 The aligned sequences will be stored in `MAFFT/alignedseq`.
 
-## 5. Mapping exons to alignments
+### 4.2 Mapping exons to alignments
+The outputs will be stored in `MAFFT/aligned_exon`.
 
 
 
