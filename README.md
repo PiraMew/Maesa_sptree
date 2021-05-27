@@ -81,7 +81,9 @@ The outputs will be stored in `MAFFT/alignments_exon`.
 ### 5.2 optrimAL
 
 
+## 6. Manual editing
 
+## 7. Tree building
 
 
 
