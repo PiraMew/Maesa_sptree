@@ -17,6 +17,7 @@ All data are stored in a project folder `/faststorage/project/Maesa`
     - `hybpiper`: all about hybpiper 
         *Target file needs to be at `~/target`
     - `coverage`: output of coverage trimming 
+    - `seq_sets2`: sequence sets after coverage trimming and length filtering
 
 
 ## 1. Quality Control and Read Trimming
@@ -48,6 +49,12 @@ For more detail on paralogs: https://github.com/mossmatters/HybPiper/wiki/Paralo
 
 ## 3. Coverage trimming and length filtering
 *This part followed Wolf Eiserhardt's scripts for Dypsidinae_species_tree*
+In a global working directory (`/faststorage/project/Maesa`, in my case), run `coverage_use.sh`
+This script will execute `coverage.py` then `samples2genes.py`.
+Output: the new gene fasta files with coverage trimming will be saved in `seq_sets2` and ready for alignment.
+
+## 4. Alignment
+`MAFFT.sh`
 
 
 
