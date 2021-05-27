@@ -19,6 +19,7 @@ All data are stored in a project folder `/faststorage/project/Maesa`
     - `coverage`: output of coverage trimming 
     - `seq_sets2`: sequence sets after coverage trimming and length filtering
     - `MAFFT`: all related to sequence alignments
+    - `optrimal_prepare`
 
 
 ## 1. Quality Control and Read Trimming
@@ -60,7 +61,30 @@ From GWD, run `MAFFT.sh`.
 The aligned sequences will be stored in `MAFFT/alignedseq`.
 
 ### 4.2 Mapping exons to alignments
+This step creates new alignments that contain the original alignments plus the exon sequences of the two species that had the highest recovery success at each locus. Using `exon_mapper.py` written by Wolf Eiserhardt.
 The outputs will be stored in `MAFFT/aligned_exon`.
+
+## 5. Gap trimming
+### 5.1 preparation
+- prepare alignments by executing `optrimal_prepare.sh`
+- generate `cutoff_trim.txt` with desired `-gt` values to be tested (one value per line). For example:
+```
+0
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+1
+```
+### 5.2 optrimAL
+
+
+
+
+
+
 
 
 
