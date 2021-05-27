@@ -53,8 +53,7 @@ print(sample+'.fasta indexed')
 
 # BWA mem paired reads
 
-cmd = 'bwa mem /faststorage/project/Maesa/steps/coverage/'+sample+'.fasta /faststorage/project/Maesa/steps/trimmed/all/'+sample+'_1_paired_trimmed.fastq /faststorage/project/Maesa/steps/trimmed/all/'+samp
-le+'_2_paired_trimmed.fastq | samtools view -b -o /faststorage/project/Maesa/steps/coverage/'+sample+'.bam'
+cmd = 'bwa mem /faststorage/project/Maesa/steps/coverage/'+sample+'.fasta /faststorage/project/Maesa/steps/trimmed/all/'+sample+'_1_paired_trimmed.fastq /faststorage/project/Maesa/steps/trimmed/all/'+sample+'_2_paired_trimmed.fastq | samtools view -b -o /faststorage/project/Maesa/steps/coverage/'+sample+'.bam'
 subprocess.call(cmd,shell=True)
 print('paired reads mapped to '+sample+'.fasta')
 
