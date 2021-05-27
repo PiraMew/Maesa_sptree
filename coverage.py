@@ -6,6 +6,8 @@
 # --- Action: mask any bases with low coverage
 # USAGE: use coverage_use.sh for execution
 # Author: Wolf Eiserhardt
+# Edited to be executable in different working directory path by Pirada Sumanon
+# Last changed: 27/05/2021
 ##################################
 
 
@@ -17,6 +19,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument("sample")
 args = parser.parse_args()
 sample = str(args.sample)
+
+
+#Directory variables
+cwd = os.getcwd() #at this point, it will be in hybpiper directory
+a = cwd.split("/")[:-1]
+coverage_dir = "/".join(a)+"/coverage"
+trimmed_dir = "/".join(a)+"/trimmed"
 
 # depth required to KEEP (i.e. anything <trshld will be discarded)
 trshld = 2
@@ -41,47 +50,47 @@ for locus in loci:
                         #sequences.append(record)
                         sequences[record.id] = record
                         
-with open('/faststorage/project/Maesa/steps/coverage/'+sample+'.fasta', "w") as outfile:
+with open(coverage_dir+'/'+sample+'.fasta', "w") as outfile:
         SeqIO.write(list(sequences.values()), outfile, "fasta")
 
 print(sample+'.fasta generated')
 
 # BWA index targets
-cmd = 'bwa index /faststorage/project/Maesa/steps/coverage/'+sample+'.fasta'
+cmd = 'bwa index '+coverage_dir+'/'+sample+'.fasta'
 subprocess.call(cmd,shell=True)
 print(sample+'.fasta indexed')
 
 # BWA mem paired reads
 
-cmd = 'bwa mem /faststorage/project/Maesa/steps/coverage/'+sample+'.fasta /faststorage/project/Maesa/steps/trimmed/all/'+sample+'_1_paired_trimmed.fastq /faststorage/project/Maesa/steps/trimmed/all/'+sample+'_2_paired_trimmed.fastq | samtools view -b -o /faststorage/project/Maesa/steps/coverage/'+sample+'.bam'
+cmd = 'bwa mem '+coverage_dir+'/'+sample+'.fasta '+trimmed_dir+'/'+sample+'_1_paired_trimmed.fastq '+trimmed_dir+'/'+sample+'_2_paired_trimmed.fastq | samtools view -b -o '+coverage_dir+'/'+sample+'.bam'
 subprocess.call(cmd,shell=True)
 print('paired reads mapped to '+sample+'.fasta')
 
 # BWA mem unpaired reads
 
-cmd = 'bwa mem /faststorage/project/Maesa/steps/coverage/'+sample+'.fasta /faststorage/project/Maesa/steps/trimmed/all/'+sample+'_unpaired.fastq | samtools view -b -o /faststorage/project/Maesa/steps/coverage/'+sample+'_up.bam'
+cmd = 'bwa mem '+coverage_dir+'/'+sample+'.fasta '+trimmed_dir+'/'+sample+'_unpaired.fastq | samtools view -b -o '+coverage_dir+'/'+sample+'_up.bam'
 subprocess.call(cmd,shell=True)
 print('unpaired reads mapped to '+sample+'.fasta')
 
 # merge BAM files
-cmd = 'samtools merge /faststorage/project/Maesa/steps/coverage/'+sample+'_all.bam /faststorage/project/Maesa/steps/coverage/'+sample+'.bam /faststorage/project/Maesa/steps/coverage/'+sample+'_up.bam'
+cmd = 'samtools merge '+coverage_dir+'/'+sample+'_all.bam '+coverage_dir+'/'+sample+'.bam '+coverage_dir+'/'+sample+'_up.bam'
 subprocess.call(cmd,shell=True)
 print('BAMs merged')
 
 # sort and index BAM files
-cmd = 'samtools sort /faststorage/project/Maesa/steps/coverage/'+sample+'_all.bam -o /faststorage/project/Maesa/steps/coverage/'+sample+'_all_sorted.bam'
+cmd = 'samtools sort '+coverage_dir+'/'+sample+'_all.bam -o '+coverage_dir+'/'+sample+'_all_sorted.bam'
 subprocess.call(cmd,shell=True)
-cmd = 'samtools index /faststorage/project/Maesa/steps/coverage/'+sample+'_all_sorted.bam'
+cmd = 'samtools index '+coverage_dir+'/'+sample+'_all_sorted.bam'
 subprocess.call(cmd,shell=True)
 print('BAM indexed and sorted')
 
 # remove duplicates
-cmd = 'java -jar /home/psumanon/picard.jar MarkDuplicates I=/faststorage/project/Maesa/steps/coverage/'+sample+'_all_sorted.bam O=/faststorage/project/Maesa/steps/coverage/'+sample+'_all_sorted_deduplicated.bam M=/faststorage/project/Maesa/steps/coverage/'+sample+'marked_dup_metrics.txt REMOVE_DUPLICATES=true'
+cmd = 'java -jar ~/picard.jar MarkDuplicates I='+coverage_dir+'/'+sample+'_all_sorted.bam O='coverage_dir+'/'+sample+'_all_sorted_deduplicated.bam M='+coverage_dir+'/'+sample+'marked_dup_metrics.txt REMOVE_DUPLICATES=true'
 subprocess.call(cmd,shell=True)
 print('reads deduplicated for sample '+sample)
 
 # calculate coverage
-cmd = 'samtools depth /faststorage/project/Maesa/steps/coverage/'+sample+'_all_sorted_deduplicated.bam > /faststorage/project/Maesa/steps/coverage/'+sample+'.cov'
+cmd = 'samtools depth '+coverage_dir+'/'+sample+'_all_sorted_deduplicated.bam > '+coverage_dir+'/'+sample+'.cov'
 subprocess.call(cmd,shell=True)
 print('coverage calculated for sample '+sample)
 
@@ -92,7 +101,7 @@ def n2N(sqnc, pstn):
         return "".join(sqnc)
 
 # process coverage
-with open('/faststorage/project/Maesa/steps/coverage/'+sample+'.cov', "r") as covfile:
+with open(coverage_dir+sample+'.cov', "r") as covfile:
         for line in covfile:
                 line = line.strip()
                 LINE = line.split("\t")
@@ -108,11 +117,11 @@ for nm in sequences.keys():
 print('coverage trimming completed, keeping only positions with coverage of '+str(trshld)+' or above')
 
 # write outfile
-with open('/faststorage/project/Maesa/steps/coverage/'+sample+'_trimmed.fasta', "w") as outfile:
+with open(coverage_dir+sample+'_trimmed.fasta', "w") as outfile:
         SeqIO.write(list(sequences.values()), outfile, "fasta")
 print('trimmed seqs written to '+sample+'_trimmed.fasta')
 
 # remove unnecessary files
-#cmd = "find /faststorage/project/Maesa/steps/coverage -type f ! -name '*.fasta' -delete"
+#cmd = "find 'coverage_dir+' -type f ! -name '*.fasta' -delete"
 #subprocess.call(cmd, shell=True)
 #print('tidied up.')
