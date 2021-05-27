@@ -62,7 +62,7 @@ The aligned sequences will be stored in `MAFFT/alignedseq`.
 
 ### 4.2 Mapping exons to alignments
 This step creates new alignments that contain the original alignments plus the exon sequences of the two species that had the highest recovery success at each locus. Using `exon_mapper.py` written by Wolf Eiserhardt.
-The outputs will be stored in `MAFFT/aligned_exon`.
+The outputs will be stored in `MAFFT/alignments_exon`.
 
 ## 5. Gap trimming
 ### 5.1 preparation
