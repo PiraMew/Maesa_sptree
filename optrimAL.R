@@ -93,4 +93,4 @@ write(overlost, 'overlost.txt', sep = '\n')
 
 file.copy(paste(optrim, '/', names(optrim), sep = ''), getwd())
 
-# file.remove(paste(overlost, sep = ''))
+# file.remove(paste(overlost, sep = '')) #mute this line to keep alignments with data loss >30%, unmute if you want to discard, but it will cause a massive lost of data
