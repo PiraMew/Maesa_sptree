@@ -26,12 +26,21 @@
 GWD=$PWD #global working directory (main directory of the project)
 WD=$PWD/steps/optrimal_ready #current working directory
 
-cd $WD
+#make new directory for copying outputs for next step
+mkdir -p $GWD/steps/alignments_for_editing
+
 
 ###################
 #----OPTRIMAL-----#
 ###################
-
+cd $WD
 $GWD/scripts/PASTA_taster.sh
 Rscript --vanilla $GWD/scripts/optrimAL.R
+
+######################################
+#---Copy outputs for next process----#
+######################################
+cp *_trimmed.aln $GWD/steps/alignments_for_editing
+
+
 
