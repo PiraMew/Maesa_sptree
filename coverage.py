@@ -68,7 +68,7 @@ print('paired reads mapped to '+sample+'.fasta')
 
 # BWA mem unpaired reads
 
-cmd = 'bwa mem '+coverage_dir+'/'+sample+'.fasta '+trimmed_dir+'/'+sample+'_unpaired.fastq | samtools view -b -o '+coverage_dir+'/'+sample+'_up.bam'
+cmd = 'bwa mem '+coverage_dir+'/'+sample+'.fasta '+trimmed_dir+'/'+sample+'_unpaired12.fastq | samtools view -b -o '+coverage_dir+'/'+sample+'_up.bam'
 subprocess.call(cmd,shell=True)
 print('unpaired reads mapped to '+sample+'.fasta')
 
