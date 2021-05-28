@@ -14,7 +14,7 @@
 # --- Output: alignment of each genes
 # USAGE: sbatch MAFFT.sh (execute from GWD)
 # Author: Pirada Sumanon (pirada.sumanon@bio.au.dk) 
-# Date: 25/05/2021
+# Date: 28/05/2021
 ##################################
 
 ###################
@@ -22,7 +22,7 @@
 ###################
 
 #working directories
-GWD=$PWD #global working directory (main directory) with subproject and scripts (in my case, it's /faststorage/project/Maesa)
+GWD=$PWD #global working directory (main directory) with subproject and scripts
 WD=$PWD/steps #current working directory
 
 #make new directories
