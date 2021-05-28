@@ -1,5 +1,5 @@
-
 #!/bin/bash
+
 #SBATCH --account=Maesa
 #SBATCH --job-name=optrimal_prepare
 #SBATCH --time=00-03:00:00
