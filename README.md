@@ -50,8 +50,8 @@ For more detail on paralogs: https://github.com/mossmatters/HybPiper/wiki/Paralo
 
 
 ## 3. Coverage trimming and length filtering
-*This part followed Wolf Eiserhardt's scripts for Dypsidinae_species_tree*
-In a global working directory (`/faststorage/project/Maesa`, in my case), run `coverage_use.sh`
+*This part follows Wolf Eiserhardt's scripts for Dypsidinae_species_tree.*
+In a global working directory, run `coverage_use.sh`
 This script will execute `coverage.py` then `samples2genes.py`.
 Output: the new gene fasta files with coverage trimming will be saved in `seq_sets2` and ready for alignment.
 
@@ -66,8 +66,8 @@ The outputs will be stored in `MAFFT/alignments_exon`.
 
 ## 5. Gap trimming
 ### 5.1 preparation
-- prepare alignments by executing `optrimal_prepare.sh`
-- generate `cutoff_trim.txt` with desired `-gt` values to be tested (one value per line). For example:
+- prepare alignments by executing `optrimal_prepare.sh`, the alignments ready for optrimal will be stored in `optrimal_ready`.
+- In `optrimal_ready`, generate `cutoff_trim.txt` with desired `-gt` values to be tested (one value per line, the values must included 0 and 1). For example:
 ```
 0
 0.2
@@ -79,7 +79,8 @@ The outputs will be stored in `MAFFT/alignments_exon`.
 1
 ```
 ### 5.2 optrimAL
-
+run `optrimal_run.sh` from GWD.
+This script implemented PASTA_taster.sh and optrimAL.R written by Shee, Zhi Qiang (https://github.com/keblat/bioinfo-utils/blob/master/docs/advice/scripts/optrimAl.txt)
 
 ## 6. Manual editing
 
