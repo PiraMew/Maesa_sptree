@@ -30,7 +30,7 @@ mkdir -p $WD/optrimal_prepare
 mkdir -p $WD/optrimal_ready
 
 #copy alignments to new directory
-cp $WD/MAFFT/alignment_exon/*.fasta $WD/optrimal_prepare
+cp $WD/MAFFT/alignments_exon/*.fasta $WD/optrimal_prepare
 
 #replace n's with gaps (-) in alignments
 cd $WD/optrimal_prepare
