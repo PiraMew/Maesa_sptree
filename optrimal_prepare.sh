@@ -34,4 +34,4 @@ cp $WD/MAFFT/alignments_exon/*.fasta $WD/optrimal_prepare
 
 #replace n's with gaps (-) in alignments
 cd $WD/optrimal_prepare
-for f in *.fasta; do (python $WD/scripts/replace_n.py); done
+for f in *.fasta; do (python $GWD/scripts/replace_n.py); done
