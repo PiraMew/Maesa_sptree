@@ -81,9 +81,11 @@ The outputs will be stored in `MAFFT/alignments_exon`.
 ### 5.2 optrimAL
 run `optrimal_run.sh` from GWD.
 This script implemented PASTA_taster.sh and optrimAL.R written by Shee, Zhi Qiang (https://github.com/keblat/bioinfo-utils/blob/master/docs/advice/scripts/optrimAl.txt).
+
 *Note: optrimAL.R was modified at the last line to NOT discard alignments with data loss exceeding 30%.*
 
 The last part of the script will copy the trimmed alignments to `alignments_for_editing`.
+
 *Note: some alignments may contain empty sequences, but we will deal with this issue after finish manual editing.*
 
 ## 6. Manual editing
