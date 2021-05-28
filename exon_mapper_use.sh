@@ -33,3 +33,13 @@ mkdir -p $WD/MAFFT/alignments_exon
 #####################
 
 $GWD/scripts/exon_mapper.py
+
+
+#########################
+#--CLEAN UP EXON NAME---#
+#########################
+cd $WD/MAFFT/alignments_exon
+# each exon in .fasta contains "exon1 sample-gene", but we only want "exon1" or "exon2".
+# To remove anything after " ", run
+for f in *.fasta; do (sed -i'.old' -e $'s/\s.*//g' $f); done
+rm *.old
