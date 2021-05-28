@@ -21,8 +21,7 @@ cwd = os.getcwd()
 os.mkdir(gwd+"/steps/alignments_for_editing/paralogs")
 
 # list only alignment files not directory
-files = (file for file in os.listdir(cwd)
-        if os.path.isfile(os.path.join(cwd, file)))
+files = (file for file in os.listdir(cwd) if os.path.isfile(os.path.join(cwd, file)))
 
 #detect paralog and move to subdirectory paralogs
 for file in files:
