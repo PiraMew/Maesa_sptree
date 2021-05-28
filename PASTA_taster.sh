@@ -1,15 +1,10 @@
 #!/bin/bash
 
-#SBATCH --account=Maesa
-#SBATCH --job-name=optrimal1
-#SBATCH --time=00-02:00:00
-#SBATCH --mem-per-cpu=5G
-#SBATCH --cpus-per-task=16
-
-#######
+###########################
 # Part of optrimAl package
 # Author: Shee, Zhi Qiang
 # (https://github.com/keblat/bioinfo-utils/blob/master/docs/advice/scripts/optrimAl.txt)
+###########################
 
 while read cutoff_trim
 do
