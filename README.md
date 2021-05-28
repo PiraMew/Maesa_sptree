@@ -19,7 +19,10 @@ All data are stored in a project folder `/faststorage/project/Maesa`
     - `coverage`: output of coverage trimming 
     - `seq_sets2`: sequence sets after coverage trimming and length filtering
     - `MAFFT`: all related to sequence alignments
-    - `optrimal_prepare`
+    - `optrimal_prepare`: files before optrimal
+    - `optrimal_ready`: files ready for optrimal and also outputs from optrimal
+    - `alignments_for_editing`: trimmed alignments for manaul editing
+    - `àlignments_edited`: alignments after manual editing
 
 
 ## 1. Quality Control and Read Trimming
@@ -84,7 +87,7 @@ This script implemented PASTA_taster.sh and optrimAL.R written by Shee, Zhi Qian
 
 *Note: optrimAL.R was modified at the last line to NOT discard alignments with data loss exceeding 30%.*
 
-The last part of the script will copy the trimmed alignments to `alignments_for_editing`.
+The last part of the script will copy the trimmed alignments to `alignments_for_editing`. Then, it will filter paralog loci out and move them to `paralogs` subdirectory.
 
 *Note: some alignments may contain empty sequences, but we will deal with this issue after finish manual editing.*
 
