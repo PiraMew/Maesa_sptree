@@ -28,13 +28,21 @@ WD=$PWD/steps #current working directory
 #make new directories
 mkdir -p $WD/MAFFT
 
-##Working Directory: /faststorage/project/Maesa/steps/MAFFT
+###################
+#---PREPARATION---#
+###################
+
 cd $WD/MAFFT
-##first, copy data from seq_sets2 to the working directory
+# first, copy data from seq_sets2 to the working directory
 cp $WD/seq_sets2/*.FNA .
+# each sequence name in .FNA contains "sample sample-gene", but we only want "sample".
+# To remove anything after " ", run
+for f in *.FNA; do (sed -i'.old' -e $'s/\s.*//g' $f); done
+rm *.old
 
-
-##ALIGNMENT
+###################
+#----ALIGNMENT----#
+###################
 
 for f in *.FNA; do (echo ${f/.FNA} >> ./genenames.txt); done
 
