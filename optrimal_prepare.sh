@@ -27,9 +27,11 @@ WD=$PWD/steps #current working directory
 
 #make new directories
 mkdir -p $WD/optrimal_prepare
+mkdir -p $WD/optrimal_ready
 
 #copy alignments to new directory
 cp $WD/MAFFT/alignment_exon/*.fasta $WD/optrimal_prepare
 
 #replace n's with gaps (-) in alignments
+cd $WD/optrimal_prepare
 for f in *.fasta; do (python $WD/scripts/replace_n.py); done
