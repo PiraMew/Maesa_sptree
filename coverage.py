@@ -101,7 +101,7 @@ def n2N(sqnc, pstn):
         return "".join(sqnc)
 
 # process coverage
-with open(coverage_dir+sample+'.cov', "r") as covfile:
+with open(coverage_dir+'/'+sample+'.cov', "r") as covfile:
         for line in covfile:
                 line = line.strip()
                 LINE = line.split("\t")
@@ -117,7 +117,7 @@ for nm in sequences.keys():
 print('coverage trimming completed, keeping only positions with coverage of '+str(trshld)+' or above')
 
 # write outfile
-with open(coverage_dir+sample+'_trimmed.fasta', "w") as outfile:
+with open(coverage_dir+'/'+sample+'_trimmed.fasta', "w") as outfile:
         SeqIO.write(list(sequences.values()), outfile, "fasta")
 print('trimmed seqs written to '+sample+'_trimmed.fasta')
 
