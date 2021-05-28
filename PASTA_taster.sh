@@ -9,6 +9,7 @@
 #######
 # Part of optrimAl package
 # Author: Shee, Zhi Qiang
+# (https://github.com/keblat/bioinfo-utils/blob/master/docs/advice/scripts/optrimAl.txt)
 
 while read cutoff_trim
 do
