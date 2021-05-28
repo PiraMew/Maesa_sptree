@@ -46,7 +46,7 @@ for locus in loci:
         
         if os.path.isfile(pth):
                 for record in SeqIO.parse(pth, "fasta"):
-                        record.id = record.id+'_'+locus
+                        record.id = record.id
                         #sequences.append(record)
                         sequences[record.id] = record
                         
