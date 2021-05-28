@@ -19,7 +19,7 @@ df = pd.read_csv(hybpiperdirectory+"/output/seq_lengths.txt", sep="\t")
 df = df.drop(0)
 
 #change directory to ./steps/MAFFT/alignedseq
-os.chdir(gwd+"steps/MAFFT/alignedseq")
+os.chdir(gwd+"/steps/MAFFT/alignedseq")
 
 # for each aligned locus, identify the two samples with the highest recovery stats
 for fn in os.listdir(): #list file in current directory
