@@ -88,9 +88,9 @@ The last part of the script will copy the trimmed alignments to `alignments_for_
 
 ## 6. Manual editing
 Each alignment needs to cleaned manually in an alignment editor program (i.e. AliView).
-    - copy the directory `alignments_for_editing` to a place of your choice
-    - after making all neccessary edits, save the edited version of all alignments to `alignments_edited`
-    - *If alignments are found to be overall wrong or doubtful (e.g. paralogs/chimeric sequences), move these alignments to `alignments_bad` and excluded from further analysis.
+- copy the directory `alignments_for_editing` to a place of your choice
+- after making all neccessary edits, save the edited version of all alignments to `alignments_edited`
+- *If alignments are found to be overall wrong or doubtful (e.g. paralogs/chimeric sequences), move these alignments to `alignments_bad` and excluded from further analysis.
     
 ## 7. Tree building
 
