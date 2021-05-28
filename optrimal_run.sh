@@ -2,9 +2,9 @@
 
 #SBATCH --account=Maesa
 #SBATCH --job-name=optrimal
-#SBATCH --time=00-02:00:00
-#SBATCH --mem-per-cpu=5G
-#SBATCH --cpus-per-task=16
+#SBATCH --time=01-00:00:00
+#SBATCH --mem-per-cpu=10G
+#SBATCH --cpus-per-task=8
 
 ##################################
 # Project: Maesa Phylogeny
