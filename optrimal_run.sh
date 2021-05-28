@@ -43,4 +43,10 @@ Rscript --vanilla $GWD/scripts/optrimAL.R
 cp *_trimmed.aln $GWD/steps/alignments_for_editing
 
 
+############################################
+#---Filter paralogs out of the analysis----#
+############################################
+cd $GWD
+python $GWD/scripts/paralog_filter.py
+
 
