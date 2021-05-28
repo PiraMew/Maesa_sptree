@@ -7,13 +7,13 @@
 
 ##################################
 # Project: Maesa Phylogeny
-# script: coverage_usage.sh
+# script: coverage_use.sh
 # --- Action: execute coverage.py and samples2genes.py
 # --- Input: HybPiper outputs, namelist.txt
 # --- Output: trimmed fasta
 # USAGE: sbatch coverage_use.sh (*execute from global working directory, `/faststorage/project/Maesa`, in my case)
 # Author: Pirada Sumanon (pirada.sumanon@bio.au.dk) 
-# Date: 21/05/2021
+# Date: 27/05/2021
 ##################################
 
 #####################
