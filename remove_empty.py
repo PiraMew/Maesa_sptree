@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+###########################
+# This script removes empty sequences from the alignment
+# Usage: remove_empty.py alignment
+# Author: Wolf Eiserhardt
+###########################
+
 import argparse, re
 from Bio import SeqIO
 from Bio.Seq import Seq
