@@ -99,7 +99,9 @@ Each alignment needs to cleaned manually in an alignment editor program (i.e. Al
     
 ## 7. Tree building
 
-
+## 7.1 Preparation
+- remove empty sequences from alignments using `remove_empty.py`
+- 
 
 
 
