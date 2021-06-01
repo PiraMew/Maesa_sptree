@@ -41,17 +41,17 @@ mv *_noempty.fasta $WD/noempty
 #remove outgroup sequences and add outgroup exons to the alignments
 cd $WD/noempty
 python $GWD/scripts/removeOG.py
-cp *_noOG.fasta $PWD/steps/addOGexons
+cp *_noOG.fasta $GWD/steps/addOGexons
 
-cd $PWD/steps/addOGexons
+cd $GWD/steps/addOGexons
 python $GWD/scripts/addOGexon.py
 
 for f in *_OGexon.fasta;
 do (mafft --keeplength --add $f --auto ${f/_OGexon.fasta}_aligned_trimmed_noempty_noOG.fasta > ${f/.fasta}added_aligned.fasta);
 done
 
-cp *_OGexonadded_aligned.fasta $PWD/steps/iqtree_prepare
+cp *_OGexonadded_aligned.fasta $GWD/steps/iqtree_prepare
 
 #generate partition files and remove exon sequences
-cd $PWD/steps/iqtree_prepare
+cd $GWD/steps/iqtree_prepare
 $GWD/scripts/partitioner_v2.py --smoother 10
