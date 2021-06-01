@@ -10,7 +10,7 @@ from Bio import SeqIO
 
 #Directory variables
 cwd = os.getcwd() #at this point, it will be in alignments_edited/noempty directory
-a = cwd.split("/")[:-2]
+a = cwd.split("/")[:-1]
 essential_dir = "/".join(a)+"/essential"
 hybpiper_dir = "/".join(a)+"/hybpiper"
 
