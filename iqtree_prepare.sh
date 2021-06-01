@@ -27,7 +27,8 @@ WD=$PWD/steps/alignments_edited #current working directory
 
 #make new directories
 mkdir -p $WD/noempty
-mkdir -p $PWD/steps/addedOGexons
+mkdir -p $PWD/steps/addOGexons
+mkdir -p $PWD/steps/iqtree_prepare
 
 #######################
 #---EXECUTE SCRIPTS---#
@@ -40,14 +41,17 @@ mv *_noempty.fasta $WD/noempty
 #remove outgroup sequences and add outgroup exons to the alignments
 cd $WD/noempty
 python $GWD/scripts/removeOG.py
+cp *_noOG.fasta $PWD/steps/addOGexons
+
+cd $PWD/steps/addOGexons
 python $GWD/scripts/addOGexon.py
 
 for f in *_OGexon.fasta;
-do (mafft --keeplength --add $f --auto ${f/_OGexon.fasta}_aligned_trimmed_noOG.fasta > ${f/.fasta}added_aligned.fasta);
+do (mafft --keeplength --add $f --auto ${f/_OGexon.fasta}_aligned_trimmed_noempty_noOG.fasta > ${f/.fasta}added_aligned.fasta);
 done
 
-cp *OGexonadded_aligned.fasta $PWD/steps/addedOGexons
+cp *_OGexonadded_aligned.fasta $PWD/steps/iqtree_prepare
 
 #generate partition files and remove exon sequences
-cd $PWD/steps/addedOGexons
+cd $PWD/steps/iqtree_prepare
 $GWD/scripts/partitioner_v2.py --smoother 10
