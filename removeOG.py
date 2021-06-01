@@ -9,8 +9,8 @@ import os
 from Bio import SeqIO
 
 #Directory variables
-cwd = os.getcwd() #at this point, it will be in alignments_edited directory
-a = cwd.split("/")[:-1]
+cwd = os.getcwd() #at this point, it will be in alignments_edited/noempty directory
+a = cwd.split("/")[:-2]
 essential_dir = "/".join(a)+"/essential"
 
 
