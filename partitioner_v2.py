@@ -79,3 +79,5 @@ for fn in os.listdir():
 			print("DNA, intron = " + ", ".join(["-".join([str(j) for j in i]) for i in partitions_intron]), file=partfile)
 			print("DNA, exon = " + ", ".join(["-".join([str(j) for j in i]) for i in partitions_exon]), file=partfile)
 		# write alignment without exon sequences
+		with open(".".join(fn.split(".")[:-1])+"_clean.fasta", "w") as al:	
+			SeqIO.write(sequences, al, "fasta")
