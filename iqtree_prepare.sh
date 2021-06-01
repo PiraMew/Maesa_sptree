@@ -34,7 +34,7 @@ mkdir -p $PWD/steps/addedOGexons
 #######################
 cd $WD
 #remove empty sequence(s) from the alignment
-for f in *.aln; do ($GWD/scripts/remove_empty.py $f); done
+for f in *.aln; do (python $GWD/scripts/remove_empty.py $f); done
 mv *_noempty.fasta $WD/noempty
 
 #remove outgroup sequences and add outgroup exons to the alignments
