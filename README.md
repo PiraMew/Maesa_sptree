@@ -23,7 +23,7 @@ All data are stored in a project folder `/faststorage/project/Maesa`
     - `optrimal_prepare`: files before optrimal
     - `optrimal_ready`: files ready for optrimal and also outputs from optrimal
     - `alignments_for_editing`: trimmed alignments for manaul editing
-    - `àlignments_edited`: alignments after manual editing, plus a subdirectory `noempty` for alignments that remove empty sequences ('*'_noempty.fasta) and also alignments without outgroup sequences ('*'_noOG.fasta)
+    - `àlignments_edited`: alignments after manual editing, plus a subdirectory `noempty` for alignments that remove empty sequences (_noempty.fasta) and also alignments without outgroup sequences (_noOG.fasta)
     - `addOGexons`: alignments which exon outgroups were added to. These OGexonadded alignments are ready for further analysis.
     - `iqtree_prepare`: clean alignments (no exon1 and exon2) and partition files, and a set of ML trees for each alignments for RogueNaRok.
     -  `rogues`: everything produced during RNR to detect and prune rogue taxa
