@@ -19,5 +19,5 @@
 
 for f in *_clean.fasta
 do 
-        iqtree -s $f -T AUTO -p ${f/clean.fasta}part.txt --runs 10
+        iqtree -s $f --runs 10
 done
