@@ -11,6 +11,7 @@ All data are stored in a project folder `/faststorage/project/Maesa`
     - `edited_alignments`
 - scripts: all scripts used (this directory is backed up)
 - steps: input and output in each step of the pipeline
+    - `essential`: all txt files that needed in the analysis (e.g. outgroups.txt)
     - `input_rawreads`: raw reads copied from `../data`
     - `fastqc`: contains 2 subdirectories for the results for raw reads (`fastqc_raw`) and trimmed reads (`fastqc_trimmed`) (NOTE: I run fastqc on Linospadix & my own computer, so this directory is not exist on GenomeDK.)
     - `trimmed`: trimmed reads
@@ -22,7 +23,11 @@ All data are stored in a project folder `/faststorage/project/Maesa`
     - `optrimal_prepare`: files before optrimal
     - `optrimal_ready`: files ready for optrimal and also outputs from optrimal
     - `alignments_for_editing`: trimmed alignments for manaul editing
-    - `àlignments_edited`: alignments after manual editing
+    - `àlignments_edited`: alignments after manual editing, plus a subdirectory `noempty` for alignments that remove empty sequences (*_noempty.fasta) and also alignments without outgroup sequences (*_noOG.fasta)
+    - `addOGexons`: alignments which exon outgroups were added to. These OGexonadded alignments are ready for further analysis.
+    - `iqtree_prepare`: clean alignments (no exon1 and exon2) and partition files, and a set of ML trees for each alignments for RogueNaRok.
+    -  `rogues`: everything produced during RNR to detect and prune rogue taxa
+    -  
 
 
 ## 1. Quality Control and Read Trimming
@@ -100,9 +105,15 @@ Each alignment needs to cleaned manually in an alignment editor program (i.e. Al
 ## 7. Tree building
 
 ## 7.1 Preparation
+From GWD, run `iqtree_prepare.sh`. This script will perform as follwed:
 - remove empty sequences from alignments using `remove_empty.py`
-- 
+- remove outgroup sequences and add outgroup exons instead. *outgroup sequences used in our analysis (Ardisia) look weird for intron regions, so we decided to remove outgroup sequences and added only outgroup exons for the analysis.* To do that, the script use `removeOG.py`and `addOGexon.py`
+- generate partition files and remove exon sequences (exon1 and exon2) from the alignments using `partition_v2.py`
 
+## 7.2 Detection of Rogue Taxa
+Based on low branch supports in our preliminary tree, we thought that it was severly affected from rogue taxa. Thus, we decided to implemented RogueNaRok algorithm (https://github.com/aberer/RogueNaRok) to detect and prune those taxa out. To do that, we have to:
+- generate a set of ML trees: we go for 10 trees using `10MLtrees.sh` executed from `iqtree_prepare` directory
+- 
 
 
 
