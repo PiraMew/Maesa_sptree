@@ -10,7 +10,7 @@
 # Project: Maesa Phylogeny
 # script: 10MLtrees.sh
 # --- Action: produce 10 ML trees using IQtree for rogues detection
-# --- Input: cleaned alignments and partition files
+# --- Input: cleaned alignments
 # --- Output: 10 Maximum Likelihood trees
 # USAGE: sbatch 10MLtrees.sh (execute in iqtree_prepare directory)
 # Author: Pirada Sumanon (pirada.sumanon@bio.au.dk) 
