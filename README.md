@@ -112,7 +112,7 @@ From GWD, run `iqtree_prepare.sh`. This script will perform as follwed:
 
 ## 7.2 Detection of Rogue Taxa
 Based on low branch supports in our preliminary tree, we thought that it was severly affected from rogue taxa. Thus, we decided to implemented RogueNaRok algorithm (https://github.com/aberer/RogueNaRok) to detect and prune those taxa out. To do that, we have to:
-- generate a set of ML trees: we go for 10 trees using `10MLtrees.sh` executed from `iqtree_prepare` directory
+- generate a set of ML trees: we go for 10 trees using `10MLtrees.sh` executed within `iqtree_prepare` directory
 - 
 
 
