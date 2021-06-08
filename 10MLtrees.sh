@@ -26,3 +26,7 @@ done
 #move output to subdirectory
 mkdir 10MLtrees_done
 mv *_clean.fasta.* 10MLtrees_done
+
+#copy *.runtrees to a new directory "../RNR" 
+mkdir ../RNR
+cp 10MLtrees_done/*.runtrees ../RNR
