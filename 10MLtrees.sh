@@ -27,6 +27,7 @@ done
 mkdir 10MLtrees_done
 mv *_clean.fasta.* 10MLtrees_done
 
-#copy *.runtrees to a new directory "../RNR" 
+#copy *.runtrees and *_clean.fasta to a new directory "../RNR" 
 mkdir ../RNR
 cp 10MLtrees_done/*.runtrees ../RNR
+cp *_clean.fasta ../RNR
