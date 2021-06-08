@@ -17,7 +17,12 @@
 # Date: 01/06/2021
 ##################################
 
+#run iqtree for 10MLtrees
 for f in *_clean.fasta
 do 
         iqtree -s $f --runs 10
 done
+
+#move output to subdirectory
+mkdir 10MLtrees_done
+mv *_clean.fasta.* 10MLtrees_done
