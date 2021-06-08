@@ -26,17 +26,17 @@ GWD=$PWD #global working directory (main directory) with subproject and scripts
 WD=$PWD/steps #current working directory
 
 #make new directories
-mkdir -p $WD/roguepruned_alignments
+mkdir -p $WD/RNR/roguepruned_alignments
 
 #######################
 #---EXECUTE SCRIPTS---#
 #######################
 cd $WD
 #copy pruned sequences from RNR to new directory
-cp $WD/RNR/*_pruned.fasta $WD/roguepruned_alignments
+cp $WD/RNR/*_pruned.fasta $WD/RNR/roguepruned_alignments
 
 #remove outgroup sequences
-cd $WD/roguepruned_alignments
+cd $WD/RNR/roguepruned_alignments
 python $GWD/scripts/removeOG.py
 
 for f in *_noOG.fasta;
