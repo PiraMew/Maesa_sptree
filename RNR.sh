@@ -6,6 +6,17 @@
 #SBATCH --mem-per-cpu=5G
 #SBATCH --cpus-per-task=8
 
+##################################
+# Project: Maesa Phylogeny
+# script: RNR.sh
+# --- Action: perform RogueNaRok
+# --- Input: a set of ML trees for each alignment
+# --- Output: rogue pruned alignments
+# USAGE: sbatch RNR.sh (execute in RNR directory)
+# Author: Pirada Sumanon (pirada.sumanon@bio.au.dk) 
+# Date: 08/06/2021
+##################################
+
 for f in *.runtrees;
 do 
     sed -i'.old' -e$'s/\[[^][]*\]//g' $f
