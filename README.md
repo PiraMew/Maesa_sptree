@@ -25,8 +25,8 @@ All data are stored in a project folder `/faststorage/project/Maesa`
     - `alignments_for_editing`: trimmed alignments for manaul editing
     - `àlignments_edited`: alignments after manual editing, plus a subdirectory `noempty` for alignments that remove empty sequences (_noempty.fasta) and also alignments without outgroup sequences (_noOG.fasta)
     - `addOGexons`: alignments which exon outgroups were added to. These OGexonadded alignments are ready for further analysis.
-    - `iqtree_prepare`: clean alignments (no exon1 and exon2) and partition files, and a set of ML trees for each alignments for RogueNaRok.
-    -  `rogues`: everything produced during RNR to detect and prune rogue taxa
+    - `iqtree_prepare`: clean alignments (no exon1 and exon2) and partition files, and a subdirectory containing a set of 10 MLtrees for each alignments for RogueNaRok.
+    -  `RNR`: everything produced during RNR to detect and prune rogue taxa plus pruned alignments
     -  
 
 
@@ -112,9 +112,18 @@ From GWD, run `iqtree_prepare.sh`. This script will perform as follwed:
 
 ## 7.2 Detection of Rogue Taxa
 Based on low branch supports in our preliminary tree, we thought that it was severly affected from rogue taxa. Thus, we decided to implemented RogueNaRok algorithm (https://github.com/aberer/RogueNaRok) to detect and prune those taxa out. To do that, we have to:
-- generate a set of ML trees: we go for 10 trees using `10MLtrees.sh` executed within `iqtree_prepare` directory
-- 
+- generate a set of ML trees: we go for 10 trees using `10MLtrees.sh` executed within `iqtree_prepare` directory the files that ready for RNR will be store in `RNR` directory
+- In `RNR`, run `RNR.sh` which produces rogue-pruned alignments
 
+## 7.3 Add outgroups back to the pruned alignments
+RNR may remove outgroup sequences in some alignments, we need to add them back by running `postRNR.sh`.
+
+## 7.4 Preliminary run IQ-Tree
+run `firstiqtree.sh` to get gene trees.
+
+## 7.5 Treeshrink
+
+## 7.6 
 
 
 
