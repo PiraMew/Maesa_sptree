@@ -135,7 +135,7 @@ A quick check of the alignments (now stored in `steps/prelim_iqtree/done` in Ali
 
 ### 8.1 IQ-Tree for gene trees
 execute `final_iqtree.sh` from GWD, this script will
-    - remove some problematic samples and repetitive samples (*IMPORTANT:* prepare a list of samples in blacklists.txt, same line seperated by space)
+   - remove some problematic samples and repetitive samples (*IMPORTANT:* prepare a list of samples in blacklists.txt, same line seperated by space)
 ```
 #example format of blacklists.txt
 
