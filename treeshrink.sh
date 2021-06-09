@@ -12,9 +12,9 @@
 # --- Action: perform treeshrink
 # --- Input: gene trees in treeshrink folder
 # --- Output: report of long branches (report.txt)
-# USAGE: sbatch treeshrink.sh
+# USAGE: sbatch treeshrink.sh (from GWD)
 # Author: Pirada Sumanon (pirada.sumanon@bio.au.dk) 
-# Date: 21/05/2021
+# Date: 09/06/2021
 ##################################
 
 ###################
