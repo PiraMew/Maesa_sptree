@@ -23,11 +23,14 @@ All data are stored in a project folder `/faststorage/project/Maesa`
     - `optrimal_prepare`: files before optrimal
     - `optrimal_ready`: files ready for optrimal and also outputs from optrimal
     - `alignments_for_editing`: trimmed alignments for manaul editing
-    - `àlignments_edited`: alignments after manual editing, plus a subdirectory `noempty` for alignments that remove empty sequences (_noempty.fasta) and also alignments without outgroup sequences (_noOG.fasta)
+    - `alignments_edited`: alignments after manual editing, plus a subdirectory `noempty` for alignments that remove empty sequences (_noempty.fasta) and also alignments without outgroup sequences (_noOG.fasta)
     - `addOGexons`: alignments which exon outgroups were added to. These OGexonadded alignments are ready for further analysis.
     - `iqtree_prepare`: clean alignments (no exon1 and exon2) and partition files, and a subdirectory containing a set of 10 MLtrees for each alignments for RogueNaRok.
     -  `RNR`: everything produced during RNR to detect and prune rogue taxa plus pruned alignments
-    -  
+    -  `prelim_iqtree`: first gene trees from IQ-Tree before Treeshrink
+    -  `treeshrink`: for TreeShrink analysis
+    -  `alignments_edited_2nd`: already checked for long branches and edited alignments for final tree building
+    -  `finaltree`: final gene trees from IQ-tree and species tree  from ASTRAL
 
 
 ## 1. Quality Control and Read Trimming
@@ -104,26 +107,44 @@ Each alignment needs to cleaned manually in an alignment editor program (i.e. Al
     
 ## 7. Tree building
 
-## 7.1 Preparation
-From GWD, run `iqtree_prepare.sh`. This script will perform as follwed:
+### 7.1 Preparation
+From GWD, run `iqtree_prepare.sh`. This script will perform as followed:
 - remove empty sequences from alignments using `remove_empty.py`
 - remove outgroup sequences and add outgroup exons instead. *outgroup sequences used in our analysis (Ardisia) look weird for intron regions, so we decided to remove outgroup sequences and added only outgroup exons for the analysis.* To do that, the script use `removeOG.py`and `addOGexon.py`
 - generate partition files and remove exon sequences (exon1 and exon2) from the alignments using `partition_v2.py`
 
-## 7.2 Detection of Rogue Taxa
+### 7.2 Detection of Rogue Taxa
 Based on low branch supports in our preliminary tree, we thought that it was severly affected from rogue taxa. Thus, we decided to implemented RogueNaRok algorithm (https://github.com/aberer/RogueNaRok) to detect and prune those taxa out. To do that, we have to:
 - generate a set of ML trees: we go for 10 trees using `10MLtrees.sh` executed within `iqtree_prepare` directory the files that ready for RNR will be store in `RNR` directory
 - In `RNR`, run `RNR.sh` which produces rogue-pruned alignments
 
-## 7.3 Add outgroups back to the pruned alignments
+### 7.3 Add outgroups back to the pruned alignments
 RNR may remove outgroup sequences in some alignments, we need to add them back by running `postRNR.sh`.
 
-## 7.4 Preliminary run IQ-Tree
+### 7.4 Preliminary run IQ-Tree
 run `firstiqtree.sh` to get gene trees.
 
-## 7.5 Treeshrink
+### 7.5 TreeShrink
+from GWD, execute `treeshrink_prep.sh` followed by `treeshrink.sh`, this will print a report of long branches detected by TreeShrink in `report.txt` in `treeshrink` directory. Use it to check the alignments in 2nd manual editing.
 
-## 7.6 
+### 7.6 Manual editing alignments: 2nd round
+A quick check of the alignments (now stored in `steps/prelim_iqtree/done` in AliView based on the result from TreeShrink, remove/edit sequences either appropriate. May use gene trees generated from 7.4 as a guideline. The edited alignments from this step should be stored in `alignments_edited_2nd`
+
+
+## 8. Final Tree Building
+
+### 8.1 IQ-Tree for gene trees
+execute `final_iqtree.sh` from GWD, this script will
+    - remove some problematic samples and repetitive samples (*IMPORTANT:* prepare a list of samples in blacklists.txt, same line seperated by space)
+```
+#example format of blacklists.txt
+
+sample1 sample99 sample124
+```
+   - copy input files to `finaltree` directory for working
+   - perform IQ-tree
+
+### 8.2 ASTRAL for species tree
 
 
 
