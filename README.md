@@ -145,9 +145,22 @@ sample1 sample99 sample124
    - perform IQ-tree
 
 ### 8.2 ASTRAL for species tree
+root gene trees, collapse low support branches and build species tree
 
 
+Replace:
 
+[q1=[\d,.,E,-]+;q2=[\d,.,E,-]+;q3=[\d,.,E,-]+;f1=[\d,.,E,-]+;f2=[\d,.,E,-]+;f3=[\d,.,E,-]+;pp1=[\d,.,E,-]+;pp2=[\d,.,E,-]+;pp3=[\d,.,E,-]+;QC=[\d,.,E,-]+;EN=([\d,.,E,-]+)]
+
+With:
+
+\1
+
+And at some branches, there might be NaN, 
+So replace:
 
 [q1=[\w+]+;q2=[\w+]+;q3=[\w+]+;f1=[\d,.,E,-]+;f2=[\d,.,E,-]+;f3=[\d,.,E,-]+;pp1=[\d,.,E,-]+;pp2=[\d,.,E,-]+;pp3=[\d,.,E,-]+;QC=[\d,.,E,-]+;EN=([\d,.,E,-]+)]
+
+With:
+\1
 
