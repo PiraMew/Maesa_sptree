@@ -10,12 +10,13 @@ import glob
 #Directory variables
 cwd = os.getcwd() #must be GWD/steps
 essential_dir = cwd+"/essential"
-trees_dir = cwd+"/finaltree/genetrees"
+
 
 with open(essential_dir+"/outgroups.txt", "r") as f:
     outgroups = [line.strip() for line in f]
 
 os.chdir("finaltree/genetrees")
+trees_dir = os.getcwd()
 
 filelist= [file for file in os.listdir() if file.endswith('.tre')] #create a list contain all tree file in the directory
 no_outgroup = [] #create a blank list for no_outgroup tree file
