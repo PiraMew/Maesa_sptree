@@ -56,10 +56,10 @@ done
 cd ../speciestree
 
 for f in *.tre;
-do (java -jar /home/psumanon/Astral/astral.5.7.5.jar -i $f -o ${f/.tre}_astral.tre 2> ${f/.tre}_astral.log);
+do (java -jar ~/Astral/astral.5.7.5.jar -i $f -o ${f/.tre}_astral.tre 2> ${f/.tre}_astral.log);
 done
 
 #to get full annotation
 for f in *_astral.tre;
-do (java -jar /home/psumanon/Astral/astral.5.7.5.jar -q $f -i ${f/_astral.tre}.tre -o ${f/.tre}full_annot.tre -t 2 2> ${f/.tre}_annotation.log);
+do (java -jar ~/Astral/astral.5.7.5.jar -q $f -i ${f/_astral.tre}.tre -o ${f/.tre}full_annot.tre -t 2 2> ${f/.tre}_annotation.log);
 done
