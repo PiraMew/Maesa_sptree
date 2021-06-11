@@ -145,8 +145,12 @@ sample1 sample99 sample124
    - perform IQ-tree
 
 ### 8.2 ASTRAL for species tree
-root gene trees, collapse low support branches and build species tree
 
+run `speciestree.sh` which check outgroups, root gene trees, collapse low support branches, build species tree and annotate tree.
+I set to collapse branch that has BS<=10 and <30, so will get 2 sets of outputs. Choose the one that has higher resolution.
+
+
+Then for fullannotation files (genetrees_bs30_astralfull_annot.tre or genetrees_bs10_astralfull_annot.tre), open it in TextEditor and
 
 Replace:
 
@@ -164,3 +168,7 @@ So replace:
 With:
 \1
 
+save the file as "genetrees_bs30_astral_EN.tre" or "genetrees_bs10_astral_EN.tre"
+
+
+## 9. Tree Visualization
