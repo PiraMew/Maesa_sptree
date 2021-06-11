@@ -31,7 +31,7 @@ for treefile in filelist:
     if check is True:
         print(treefile , 'OK')
     else:
-        print(treefilose , 'Outgroup not in a tree')
+        print(treefile , 'Outgroup not in a tree')
         no_outgroup.append(treefile.split(".")[0])
         
 #to create a txt file contain treefiles with no outgroups.
