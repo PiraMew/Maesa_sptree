@@ -42,6 +42,6 @@ with open("no_outgroup.txt", "w") as x:
 
 
 for i in no_outgroup:
-    for fn in glob.glob(f"{trees_dir}/{i}*'):
+    for fn in glob.glob(f'{trees_dir}/{i}*'):
         toPath = trees_dir+"/no_outgroup/" + fn.split("/")[-1]
         shutil.move(fn, toPath)
