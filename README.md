@@ -173,3 +173,7 @@ save the file as "genetrees_bs30_astral_EN.tre" or "genetrees_bs10_astral_EN.tre
 
 
 ## 9. Tree Visualization
+in R studio,
+
+## 10. Alignment statistics
+run `alignment_stats.sh` from GWD to get summary of alignments using AMAS
