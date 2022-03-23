@@ -46,3 +46,4 @@ while read name;
 do ~/HybPiper/reads_first.py -b ~/target/mega353.fasta -r $WD/trimmed/${name}_1_paired_trimmed.fastq $WD/trimmed/${name}_2_paired_trimmed.fastq --unpaired $WD/trimmed/${name}_unpaired12.fastq --prefix $name --bwa
 done < namelist.txt
 
+#in some occasion, it can get an error as "sh: /dev/tty: No such device or address", try to remove --unpaired flag to see if this fix.
